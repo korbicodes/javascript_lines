@@ -188,3 +188,31 @@ const employer = {
 // console.log(employer['calcAge'](employer.bYear))
 
 console.log(employer.calcAge());
+
+
+//it's not a good practice that every time you call function the calculation is made, for other cases it could be a heavier computation that takes more time, so its better to calculate once then store it in the object and then just retrive the age as property.
+
+
+
+//age is a property defined inside the calcAge method/(function) , so if we try to access the age without calling/invoking the object method, the property we are trying to access is undefined, which means age property gets added on to the 'jonas' object only when the calcAge method is called.
+const employerOne = {
+    name: 'Alessia',
+    bYear: 1995,
+    level: 'senior',
+    friends: ['James', 'Anna', 'Kelly'],
+    hasDriverLicense: true,
+    calcAge: function () {
+        this.age = 2025 - this.bYear;
+        return this.age;
+    },
+    getSummary: function () {
+        return `${employerOne.name} is a ${employerOne.calcAge()}-year old developer, and has ${employerOne.hasDriverLicense ? 'a' : 'no'} driver's license.`
+    }
+}
+
+
+employerOne.calcAge()
+console.log(employerOne.age);
+
+
+console.log(employerOne.getSummary());
