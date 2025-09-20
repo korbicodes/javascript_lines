@@ -138,3 +138,53 @@ console.log(employees.indexOf('Alessia'));
 //es6 methods : includes : returns true/false / uses strict equality for the check
 console.log(employees.includes('James'));
 
+
+//intro to objects - define key value pairs / order is not important/ use them for more unstructered data, and arrays for ordered data
+// 4 properties
+const employee = {
+    name: 'Alessia',
+    age: 30,
+    level: 'senior',
+    friends: ['James', 'Anna', 'Kelly']
+}
+
+//dot vs bracket notation
+console.log(employee);
+console.log(employee.age);
+//in the bracket notation can put any expression, so in dot notation cannot use a computed property name, only the real one.
+console.log(employee['name']);
+
+
+//prompt returns the string
+// const interestedIn = prompt("choose what do you want to know for Alessia"); //e.g: level
+
+// console.log(employee[interestedIn]); // senior
+employee.location = 'Berlin';
+employee['twitter'] = '@alessia';
+console.log(employee);
+
+console.log(`${employee.name} has ${employee.friends.length} friends and her best friend is ${employee.friends[employee.friends.length - 1]}`);
+
+
+//object methods
+// this keywords equals to the object in which the method was called,so its equal to the obj calling the method
+const employer = {
+    name: 'Alessia',
+    bYear: 1995,
+    level: 'senior',
+    friends: ['James', 'Anna', 'Kelly'],
+    hasDriverLicense: true,
+    // calcAge: function (bYear) {
+    //     return 2025 - bYear
+    // }
+    calcAge: function () {
+        console.log(this) //the employer boject
+        return 2025 - this.bYear
+    }
+
+}
+
+// console.log(employer.calcAge(employer.bYear))
+// console.log(employer['calcAge'](employer.bYear))
+
+console.log(employer.calcAge());
