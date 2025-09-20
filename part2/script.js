@@ -72,3 +72,69 @@ function fruitProcessor(apples, oranges) {
     return juice;
 }
 console.log(fruitProcessor(2, 3));
+
+//review
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+const team1 = calcAverage(85, 54, 41);
+const team2 = calcAverage(23, 43, 27);
+
+const checkWinner = function (avgTeam1, avgTeam2) {
+    if (avgTeam1 >= 2 * avgTeam2) {
+        console.log(`Team 1 wins`);
+    } else if (avgTeam2 >= 2 * avgTeam1) {
+        console.log(`Team 2 wins`);
+    } else {
+        console.log(`No team wins.`)
+    }
+};
+
+checkWinner(team1, team2);
+
+
+//arrays data structure
+//literal syntax
+const employees = ['Michael', 'Alessia', 'Steven'];
+console.log(employees);
+
+const years = new Array(1991, 1984, 2009, 2020);
+
+console.log(employees[0]);
+console.log(employees.length);
+
+//length is not 0 based, to get the last element: 3-1
+console.log(employees[employees.length - 1]);
+
+
+//even though employess is declared as const, can change the value because array is not a primitive value, only primitive values are immutable
+employees[2] = 'Angela';
+
+const building = ['centre', 731, employees];
+console.log(building);
+
+//basic array methods
+//the value that push method returns is the length of the new array
+const newLength = employees.push('James');  //add element in the end of array
+console.log(newLength);
+
+//add elements to beginning - unshift - also returns length
+employees.unshift('john');
+console.log(employees);
+
+//remove elements
+//pop - remove last element, returns the removed element
+employees.pop()
+const popped = employees.pop();
+console.log(popped);
+console.log(employees);
+
+//remove first element: shift()
+employees.shift();
+console.log(employees);
+
+console.log(employees.indexOf('Alessia'));
+//using indexof for an element that does not exist returns -1
+
+
+//es6 methods : includes : returns true/false / uses strict equality for the check
+console.log(employees.includes('James'));
+
