@@ -245,3 +245,4 @@ const calcAvg = function (arr) {
 console.log(calcAvg([2, 3, 7]));
 console.log(calcAvg(totals));
 console.log(calcAvg(tips));
+
