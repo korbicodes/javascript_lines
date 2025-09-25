@@ -41,4 +41,22 @@ const calcTempAmplitude2 = (t1,t2) => {
     }
     return max - min;
 };
-console.log(calcTempAmplitude2([3,5,1],[9,0,5]));
+console.log(calcTempAmplitude2([3, 5, 1], [9, 0, 5]));
+
+
+//debugging with console and breakpoints
+//identify the bug
+//find the bug
+
+const measureKelvin = function () {
+    const measurement = {
+        type: 'temp',
+        unit: 'celsius',
+        value: Number(prompt('Degrees celcius'))
+    };
+    console.table(measurement);
+    debugger; //opens the debugger tool
+    const kelvin = measurement.value + 273;
+    return kelvin;
+};
+console.log(measureKelvin());
