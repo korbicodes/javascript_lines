@@ -25,7 +25,7 @@ console.log(calcTempAmplitude(temperatures));
 //prob 1 - function should receive 2 arrays of temps
 //merge the arrays
 // The concat() method of Array instances is used to merge two or more arrays 
-
+// This method does not change the existing arrays, but instead returns a new array.
 const calcTempAmplitude2 = (t1,t2) => {
     
     const t3 = t1.concat(t2);
