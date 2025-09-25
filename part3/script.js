@@ -2,7 +2,7 @@
 
 //prob 1
 // calculate temperature amplitude - difference of highest and lowest temp
-
+//check for errros
 const temperatures = [3, -2, -6, -2, 'error', 9, 13, 17, 15, 14, 9, 5];
 
 
