@@ -34,30 +34,30 @@
 //hoisting
 
 //variables
-console.log(fName);  //undefined - vars declared with var are hoisted to the value undefined
-console.log(job); //reference error - TDZ 
-console.log(year); //
+// console.log(fName);  //undefined - vars declared with var are hoisted to the value undefined
+// console.log(job); //reference error - TDZ 
+// console.log(year); //
 
 
-var fName = "alessia";
-let job = 'mentor';
-const year = 1993;
+// var fName = "alessia";
+// let job = 'mentor';
+// const year = 1993;
 
 
-//functins
-console.log(addDecl(2,3))  //5 
-console.log(addExpr(2,3)) //reference error
-console.log(addArrow(2,3))
+// //functins
+// console.log(addDecl(2,3))  //5 
+// console.log(addExpr(2,3)) //reference error
+// console.log(addArrow(2,3))
 
-function addDecl(b, c) {
-    return b + c;
-}
+// function addDecl(b, c) {
+//     return b + c;
+// }
 
-const addExpr = function (b, c) {  //just a const variable, it's in TDZ  - if var was used: addExpr is not a function, same for addArrow, its same as calling undefined(2,3)
-    return b + c;
-};
+// const addExpr = function (b, c) {  //just a const variable, it's in TDZ  - if var was used: addExpr is not a function, same for addArrow, its same as calling undefined(2,3)
+//     return b + c;
+// };
 
-const addArrow = (b, c) => b + c; 
+// const addArrow = (b, c) => b + c; 
 
 
 
@@ -82,7 +82,49 @@ const d = 1;
 
 
 // check if b is property of window obj
-console.log(b === window.b);  //true
-console.log(b === window.b);  //false
-console.log(b === window.b);  //false 
+// console.log(b === window.b);  //true
+// console.log(b === window.b);  //false
+// console.log(b === window.b);  //false
 // variables created with let and const do not get the window object.
+
+
+
+
+
+
+//this keyword
+console.log(this);  //window object
+
+
+//normal function, function not attache to an object.
+const calcAge = function (bYear) {
+    console.log(2025 - bYear)
+    console.log(this);  //undefined in strict mode otherwise the global obj
+};
+
+calcAge(1993);
+
+
+
+//arrow function 
+const calcAgeArrow = bYear => {
+    console.log(2025 - bYear)
+    console.log(this); //window because arrow function do not get it's own this keyword, it uses the lexial this keyword, which in this situation is window in the global scope.
+};
+
+calcAgeArrow(1995);
+
+const alessia = {
+    year: 1993,
+    calcAge: function () {
+        console.log(this);
+        console.log(2025 - this.year);
+    }
+};
+
+alessia.calcAge(); // alessia object
+//this keyword always points to the method that is calling the object.
+
+const f = jonas.calcAge;
+console.log(f);  //the function
+f();   //undefined, the f is just a regular functiton call.
