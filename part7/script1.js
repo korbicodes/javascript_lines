@@ -14,9 +14,20 @@ const alessia = {
         console.log(this);
         console.log(2025 - this.year);
 
-        const isMillenial = function () {
-            console.log(this);  //undefined -> it's regular function even though is inside a method
-            console.log(this.year >= 1981 && this.year <= 1996)
+        //solution 1
+        // const self = this;
+        // const isMillenial = function () {
+        //     console.log(self); //self is declared in the par scope hence self is this
+        //     console.log(self.year >= 1981 && self.year <= 1996) //true
+        // }
+        // isMillenial();
+
+
+
+        //solution 2
+        const isMillenial = () => {
+            console.log(this); //self is declared in the par scope hence self is this
+            console.log(this.year >= 1981 && this.year <= 1996) //true
         }
         isMillenial();
     },
@@ -31,5 +42,22 @@ alessia.greet();
 
 
 //another pitfall
-// even though a function happens to be inside a method the 'this' keyword will be undefined because it will be just a regular function 
+// even though a function happens to be inside a method the 'this' keyword will be undefined because it will be just a regular function
 // 2 solutions: use an extra var called self
+//or in ES6 use arrow function, since it does not have the this keyword and it will inherit the par scope this
+
+
+
+
+
+//arguments keyword
+//functions also get access to an arguments keyword, only in regular functions
+//useful when you need to accept more params than you specify
+const addExpr = function (a, b) {
+    console.log(arguments); //array with 2 and 5
+    return a + b;
+};
+
+addExpr(2, 5);
+addExpr(2, 5, 7);
+var addArrow = (a, b) => a + b;
