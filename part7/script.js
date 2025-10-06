@@ -128,3 +128,6 @@ alessia.calcAge(); // alessia object
 const f = jonas.calcAge;
 console.log(f);  //the function
 f();   //undefined, the f is just a regular functiton call.
+
+
+
