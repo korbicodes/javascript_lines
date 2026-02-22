@@ -25,9 +25,18 @@ const restaurant = {
     },
     order: function (starterIndex, mainIndex) {
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
+    },
+    orderDelivery: function (obj) {
+        console.log(obj)
     }
 };
 
+restaurant.orderDelivery({
+    time: '22:30',
+    address: 'london center 21',
+    mainIndex: 2,
+    starterIndex: 2,
+});
 // use the exact variable names to destruct from the object
 // the order does not matter
 // really important when getting data from an api (third party data)
