@@ -26,8 +26,8 @@ const restaurant = {
     order: function (starterIndex, mainIndex) {
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
     },
-    orderDelivery: function (obj) {
-        console.log(obj)
+    orderDelivery: function ({ starterIndex=1, mainIndex=0, time='22:00', address }) {
+        console.log(`${this.starterMenu[starterIndex]} and ${this.starterMenu[mainIndex]} will be delivered to ${address} at ${time}`)
     }
 };
 
@@ -36,6 +36,12 @@ restaurant.orderDelivery({
     address: 'london center 21',
     mainIndex: 2,
     starterIndex: 2,
+});
+
+//using the default values
+restaurant.orderDelivery({
+    address: 'london center 21',
+    starterIndex: 1,
 });
 // use the exact variable names to destruct from the object
 // the order does not matter
