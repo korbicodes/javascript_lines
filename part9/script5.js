@@ -51,4 +51,20 @@ console.log(pizza, risotto, otherFood);
 //objects
 
 const { sat, ...otherDays } = restaurant.openingHours;
-console.log(sat,otherDays)
+console.log(sat, otherDays);
+
+
+//functions
+const add = function (...numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++){
+        sum += numbers[i];
+    }
+    console.log(sum)
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+
+const list = [23, 5, 7];
+add(...list);
