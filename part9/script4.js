@@ -34,8 +34,10 @@ const restaurant = {
     orderDelivery: function ({ starterIndex=1, mainIndex=0, time='22:00', address }) {
         console.log(`${this.starterMenu[starterIndex]} and ${this.starterMenu[mainIndex]} will be delivered to ${address} at ${time}`)
     },
+    orderPasta(ing1, ing2, ing3) {
+        console.log(`Here is your delicious pasta with ${ing1},  ${ing2} and  ${ing3}`)
+    }
 
-    
 };
 
 
@@ -70,4 +72,9 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 const str = 'jonas';
 const letters = [...str, '', 'S.'];
 console.log(letters);
-console.log(...str)
+console.log(...str);
+
+
+const ingridients = [prompt("Order pasta now! Ingridinet 1?"), prompt("Ingridient 2?"), prompt("Ingridient 3?")];
+
+restaurant.orderPasta(...ingridients);
