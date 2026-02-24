@@ -78,3 +78,10 @@ console.log(...str);
 const ingridients = [prompt("Order pasta now! Ingridinet 1?"), prompt("Ingridient 2?"), prompt("Ingridient 3?")];
 
 restaurant.orderPasta(...ingridients);
+
+//objects
+const newRestaurant = {foundedIn: 1998, ...restaurant, founder: 'guiseppe'}
+
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'classic';
