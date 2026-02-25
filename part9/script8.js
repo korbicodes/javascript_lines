@@ -36,7 +36,7 @@ const restaurant = {
 
 const rest1 = {
     name: 'capri',
-    numGuests: 20
+    numGuests: 0
 };
 
 const rest2 = {
@@ -50,11 +50,16 @@ const rest2 = {
 // rest2.numGuests = rest1.numGuests || 10;
 
 //OR assignment operator - assings a var to a var if that var is currently falsy, but it does not work in case num of guests was defined as 0
-rest1.numGuests ||= 10;   //  <=> rest1.numGuests = rest1.numGuests || 10;
-rest2.numGuests ||= 10;
+// rest1.numGuests ||= 10;   //  <=> rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests ||= 10;
+
+
+//nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10; //numGuests is undefined hence it will have value of 10
 
 console.log(rest1)
-console.log(rest2);
+console.log(rest2); 
 //output
 // { name: 'capri', numGuests: 20 }
 // { name: 'La piazza', owner: 'Giovanni', numGuests: 20 }
