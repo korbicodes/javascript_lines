@@ -2,6 +2,42 @@
 
 //short circuiting
 
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+    openingHours: {
+        thu: {
+            open: 12,
+            close: 22,
+        },
+        fri: {
+            open: 11,
+            close: 23,
+        },
+        sat: {
+            open: 0, //open 24 hours
+            close: 24,
+        },
+        
+    },
+    order: function (starterIndex, mainIndex) {
+        return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
+    },
+    orderDelivery: function ({ starterIndex=1, mainIndex=0, time='22:00', address }) {
+        console.log(`${this.starterMenu[starterIndex]} and ${this.starterMenu[mainIndex]} will be delivered to ${address} at ${time}`)
+    },
+    orderPasta(ing1, ing2, ing3) {
+        console.log(`Here is your delicious pasta with ${ing1},  ${ing2} and  ${ing3}`)
+    }
+
+};
+
+
+
+
 
 //logical operators can use any data type
 //can return any data type, short-circuiting (in case of OR operator: if the first value is a truthy values, immediately returns that first value)
@@ -33,8 +69,8 @@ console.log(7 && 'jonas') //jonas
 console.log('hello' && 23 && null && 'jonas'); //null - first value that is false
 
 //practical eg
-if (restaurant.orderPizza) {
-    restaurant.orderPizza('mushrooms', 'spinach')
+if (restaurant.orderPasta) {
+    restaurant.orderPasta('mushrooms', 'spinach', 'sauce')
 }
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+restaurant.orderPasta && restaurant.orderPasta('mushrooms', 'spinach','sauce');
