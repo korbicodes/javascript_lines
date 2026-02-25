@@ -63,3 +63,11 @@ console.log(rest2);
 //output
 // { name: 'capri', numGuests: 20 }
 // { name: 'La piazza', owner: 'Giovanni', numGuests: 20 }
+
+
+//and assignment operator - assign value if its currently truthy
+rest1.owner = rest1.owner && '<anonymous';  //undefined
+rest2.owner = rest2.owner && '<anonymous';  //anon
+
+rest1.owner &&= '<anonymous'  //result is better , owner is not here at all
+rest2.owner &&= '<anonymous' //anon
