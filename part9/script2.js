@@ -1,5 +1,5 @@
 'use strict';
-
+// destructuring arrays
 const books = [
   {
     title: 'Algorithms',
