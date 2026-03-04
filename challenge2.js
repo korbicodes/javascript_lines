@@ -79,9 +79,17 @@ average /= odds.length;
 console.log(average);
 
 
+//3 - print the 3 odds to the console
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
 
 
-
+const scorers = {}
+for (const player of game.scored) {
+  scores[player] ? scorers[player]++ : (scorers[player] = 1)
+}
 
 
 
