@@ -98,5 +98,3 @@ for (const player of game.scored) {
 
 
 
-
-
