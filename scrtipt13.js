@@ -39,3 +39,57 @@ const staffUni = [...new Set(staff)];
 
 //counting how many different letters are in a string
 console.log(new Set('jonassss').size); //5
+
+
+
+
+//-------------------
+//new operations to make sets useful , 7 more methods were added in ES2025 - only latest version of browsers support these methods
+
+
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const mexicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+//which ing are present in italian and mecan foods
+//intersection methods
+const commonFoods = italianFoods.intersection(mexicanFoods)
+console.log('intersection: ' ,commonFoods);  //result is new set that contains only common foods
+console.log([...commonFoods]);
+
+//union methods: all elements of sets without duplicates
+
+const itcan = italianFoods.union(mexicanFoods);
+console.log('union: ', itcan);
+
+console.log([...new Set([...italianFoods, ...mexicanFoods])]);
+
+
+
+//difference method: new set that contains all elements present in the first set but not in the second one.
+
+const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+console.log('Difference italian: ' , uniqueItalianFoods);
+
+//symmetric - opposite of intersection (unique italian and can foods but not the common ones)
+
+const italianAndCanFoods = italianFoods.symmetricDifference(mexicanFoods)
+console.log(italianAndCanFoods);
+
+
+//check if one set contains another set
+console.log(italianFoods.isDisjointFrom(mexicanFoods)); //checks if the sets are completely different , basically if one set contain any elements of the other set.
