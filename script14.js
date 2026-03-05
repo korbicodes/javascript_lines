@@ -76,4 +76,43 @@ rest.set(arr, 'Test');
 console.log(rest.get(arr)); //refer to the same place in memory
 
 
-rest.set(document.querySelector('h1'), 'heading')
+rest.set(document.querySelector('h1'), 'heading');
+
+
+
+//maps iteration
+//populating a map without using the set method, using arrays : first el is the key and second on is the value
+
+//same structure as object.entries()
+const question = new Map([
+    ['question', 'what is best prog lang'],
+    [1, 'C'],
+    [2, 'java'],
+    [3, 'javascript']
+    ['correct', 3]
+    [true, 'correct✔'],
+    [false, 'try again!']
+]);
+
+console.log(question);
+
+//convert object to map
+const hoursMap = new Map(Object.entries(openingHours));
+
+//maps are also iterables, while objects are not
+console.log(question.get('question'));
+for (const [key, value] of question) {
+    if(typeof key === 'Number') console.log(`${key}: ${value}`);
+}
+const answer = Number(prompt("your answer"));
+// answer === question.get('correct') ? console.log(question.get(true)) : console.log(question.get(false));
+
+console.log(question.get(question.get('correct') === answer));
+
+
+//convert map to array
+const quest = [...question]; 
+
+// console.log(question.entries());
+console.log(...[question.keys()]);
+console.log([...question.values()]);
