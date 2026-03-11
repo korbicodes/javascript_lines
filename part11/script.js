@@ -117,3 +117,20 @@ console.log([...arr,...arr2]);
 
 //join
 console.log(letters.join('-')); //a-f-g-h-i-j
+
+
+
+//es2022 at method , good at method chaining, getting last element, counting from last elements, also works on strings
+
+const ar = [23,11,64]
+console.log(ar.at(0));   //gives element at pos 0, replaces bracket notation to the more modern looking at method
+
+//get last element of array supposing length is not known
+//without at
+console.log(ar[ar.length - 1]);
+
+//another way of getting last element
+console.log(ar.slice(-1)[0]);   //64
+
+//with at
+console.log(ar.at(-1)); //64
