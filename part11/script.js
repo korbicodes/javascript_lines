@@ -72,11 +72,11 @@ const accounts = [account1, account2, account3, account4];
 
 
 //lectures
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling']]
-);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling']]
+// );
 
 const movements = [200,450,-400,3000,-650,-130,70,1300]
 
@@ -158,3 +158,29 @@ movements.forEach(function (movement,i,array) {
   }
 })
 //0 function(200) ...1 function(450)
+
+
+
+
+//for-each with maps and sets
+//map
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling']]
+);
+
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value} `);
+});
+
+//set - key is exactly as values as sets dont have kyes and indexes either
+//instead of key as param, leave it as underscore _, which in js means an unnecessary variable
+const currenciesUnique = new Set(['USD', 'GBP', 'GBP', 'EUR', 'EUR',]);
+currenciesUnique.forEach(function (value,key,set) {
+  console.log(`${key}: ${value} `);
+});
+//USD: USD 
+//GBP: GBP 
+//EUR: EUR
