@@ -134,3 +134,27 @@ console.log(ar.slice(-1)[0]);   //64
 
 //with at
 console.log(ar.at(-1)); //64
+
+
+//looping arrays - foreach
+
+for (const [i,movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i+1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i+1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+
+//foreach requires a callback function - foreach loops over the array and in each iteration calls the callback function
+//in each iteration it will pass in the current element of the array as an argument
+// can have 1,2 or 3 params: first param should always be the current element, 2nd param the current index and the third the entire array looping over, the order matters
+movements.forEach(function (movement,i,array) {
+  if (movement > 0) {
+    console.log(`Movement ${i+1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i+1}: You withdrew ${Math.abs(movement)}`);
+  }
+})
+//0 function(200) ...1 function(450)
