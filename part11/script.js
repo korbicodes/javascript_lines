@@ -128,7 +128,7 @@ displayMovements(account1.movements)
 
 // let arr = ['a', 'b', 'c', 'd', 'e']
 
-// //slice - returns a new array , a copy of array with extracted parts, does 
+// //slice - returns a new array , a copy of array with extracted parts, does
 // //not mutate the original array
 // console.log(arr.slice(2));       //(3) ['c', 'd', 'e']
 // console.log(arr.slice(2, 4));    //['c', 'd']  end parameter not included
@@ -137,7 +137,7 @@ displayMovements(account1.movements)
 // console.log(arr.slice(1, -2));    //['b', 'c'] starts at pos 1 and extracts all expect last 2 elements
 
 // //create a shallow copy
-// console.log(arr.slice());        
+// console.log(arr.slice());
 
 
 
@@ -227,3 +227,49 @@ displayMovements(account1.movements)
 // //USD: USD
 // //GBP: GBP
 // //EUR: EUR
+
+
+
+
+
+//data transformation: map, filter, reduce
+//create new arrays based on transforming data from other arrays
+
+//map is similar to foreach but it creates a brand new array based on original array (very useful even more than forEach) --- so map returns a new array containing the results of applying an operation(callback function) on all original array elements(e.g current * 2 -> new array where each elements is multiplied by 2).
+
+const movements = [200,450,-400,3000,-650,-130,70,1300]
+
+//convert euro to dollars
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUsd;
+})
+
+//using arrow functions
+const movementUSD = movements.map(mov=>mov*eurToUsd)
+
+console.log(movementsUSD);
+
+//using for of
+const movementUsd = [];
+for (const mov of movements) {
+  movementUsd.push(mov*eurToUsd)
+}
+
+
+const movementDescriptions = movements.map((mov, i) => {
+  return mov > 0 ? `Movement ${i+1} : You deposited ${mov}` : `Movement ${i+1} : You withdrew ${Math.abs(mov)}`
+  
+})
+console.log(movementDescriptions);
+
+
+
+//filter: used to filter for elements in original which fulfill a certain condition - returns a new array containing the array elements that passed a specific condition (e.g filter if current>2 )
+
+//reduce: boils all array elements down to one single values (e.g adding all elements together: acc + current) | no new array only the reduced value.
+
+
+//foraech method creates side affects. The map method logs the entire array to the console and not the elemnts one by one and so in the map method no side affect is created in each of the iteration.
+
