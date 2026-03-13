@@ -249,7 +249,7 @@ console.log(accounts);
 
 //map is similar to foreach but it creates a brand new array based on original array (very useful even more than forEach) --- so map returns a new array containing the results of applying an operation(callback function) on all original array elements(e.g current * 2 -> new array where each elements is multiplied by 2).
 
-// const movements = [200,450,-400,3000,-650,-130,70,1300]
+const movements = [200,450,-400,3000,-650,-130,70,1300]
 
 // //convert euro to dollars
 // const eurToUsd = 1.1;
@@ -279,6 +279,16 @@ console.log(accounts);
 
 
 //filter: used to filter for elements in original which fulfill a certain condition - returns a new array containing the array elements that passed a specific condition (e.g filter if current>2 )
+
+
+//i and arr not used in filter at all
+const deposits = movements.filter(function(mov,i,arr) {
+  return mov > 0 
+})
+console.log(`Deposits: ${deposits}`);
+
+//using the methods instead of the regular for loop, is that it allos chaining methods
+const withdraws = movements.filter(mov=>mov<0)
 
 //reduce: boils all array elements down to one single values (e.g adding all elements together: acc + current) | no new array only the reduced value.
 
