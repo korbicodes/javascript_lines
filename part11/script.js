@@ -87,12 +87,24 @@ displayMovements(account1.movements)
 
 
 
+const user = 'Steven Thomas Williams'; //stw
+// const username = user.toLowerCase().split(' ').map(user => {
+//   return user.slice(0, 1);
+// }).join('')
 
+const username = user.toLowerCase().split(' ').map(user => user.slice(0, 1)).join('')
+console.log(username);
 
+const createUsernames = function (accs) {
+  //modify the array that you get as input - foreach (side affect - mutates orignal array)
+  accs.forEach(function (acc) {
+    acc.username = acc['owner'].toLowerCase().split(' ').map(user => user.slice(0, 1)).join('');
+  });
+}
+  // return user.toLowerCase().split(' ').map(user => user.slice(0, 1)).join('')
 
-
-
-
+createUsernames(accounts)
+console.log(accounts);
 
 
 
@@ -237,32 +249,32 @@ displayMovements(account1.movements)
 
 //map is similar to foreach but it creates a brand new array based on original array (very useful even more than forEach) --- so map returns a new array containing the results of applying an operation(callback function) on all original array elements(e.g current * 2 -> new array where each elements is multiplied by 2).
 
-const movements = [200,450,-400,3000,-650,-130,70,1300]
+// const movements = [200,450,-400,3000,-650,-130,70,1300]
 
-//convert euro to dollars
-const eurToUsd = 1.1;
+// //convert euro to dollars
+// const eurToUsd = 1.1;
 
-const movementsUSD = movements.map(function (mov) {
-  return mov * eurToUsd;
-})
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// })
 
-//using arrow functions
-const movementUSD = movements.map(mov=>mov*eurToUsd)
+// //using arrow functions
+// const movementUSD = movements.map(mov=>mov*eurToUsd)
 
-console.log(movementsUSD);
+// console.log(movementsUSD);
 
-//using for of
-const movementUsd = [];
-for (const mov of movements) {
-  movementUsd.push(mov*eurToUsd)
-}
+// //using for of
+// const movementUsd = [];
+// for (const mov of movements) {
+//   movementUsd.push(mov*eurToUsd)
+// }
 
 
-const movementDescriptions = movements.map((mov, i) => {
-  return mov > 0 ? `Movement ${i+1} : You deposited ${mov}` : `Movement ${i+1} : You withdrew ${Math.abs(mov)}`
+// const movementDescriptions = movements.map((mov, i) => {
+//   return mov > 0 ? `Movement ${i+1} : You deposited ${mov}` : `Movement ${i+1} : You withdrew ${Math.abs(mov)}`
   
-})
-console.log(movementDescriptions);
+// })
+// console.log(movementDescriptions);
 
 
 
