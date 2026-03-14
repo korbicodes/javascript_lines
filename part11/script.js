@@ -108,6 +108,16 @@ console.log(accounts);
 
 
 
+const showBalance = function (movements) {
+  const balance = movements.reduce(function(acc,cur) {
+    // console.log('acc',acc,cur);
+    return acc + cur
+  }, 0)
+  labelBalance.textContent = balance;
+}
+
+
+showBalance(account2.movements)
 
 
 
@@ -292,6 +302,35 @@ const withdraws = movements.filter(mov=>mov<0)
 
 //reduce: boils all array elements down to one single values (e.g adding all elements together: acc + current) | no new array only the reduced value.
 
+//first parameter is actually the accumulator - always the current element of the array, 2nd is current index,and the third oneis the entire array
+//reduce also loops over the array and calls the callback function in each iteration
+//callback function is the first argument of the reduce method, but it also has a second parameter, which is the initial value of parameter
+// const balance = movements.reduce(function (acc,cur,i,arr) {
+//   //add current value to accumulator
+//   console.log(`Iteration number ${i} : ${acc}`);
+//   return acc + cur
+// },0)
+// console.log(balance);
 
+const balance = movements.reduce((acc, cur) => acc + cur,0);
+console.log(balance);
+
+
+
+
+//with for loop  -- an external variables is needed.s
+let acc = 0;
+for (const mov of movements) {
+  acc += mov;
+}
+console.log(acc);
 //foraech method creates side affects. The map method logs the entire array to the console and not the elemnts one by one and so in the map method no side affect is created in each of the iteration.
 
+//maximum value
+
+const max = movements.reduce(function (acc, cur) {
+  if (cur > acc) return cur
+  else return acc
+}, movements[0])
+
+console.log(max);
