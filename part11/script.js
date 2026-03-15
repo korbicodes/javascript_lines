@@ -120,8 +120,17 @@ const showBalance = function (movements) {
 showBalance(account2.movements)
 
 
+const displaySummary = function (movements) {
+  const incomes = movements.filter(mov => mov > 0).reduce((acc, cur) => acc + cur, 0);
+  console.log('incomes: ', incomes);
+  labelSumIn.textContent = incomes;
+  const out = movements.filter(mov => mov < 0).reduce((acc, cur) => acc + Math.abs(cur), 0)
+  labelSumOut.textContent = out;
+  const interest = movements.filter(mov => mov > 0).map(deposit => deposit * 1.2 / 100).filter((int,i,arr)=>int>=1).reduce((acc, int) => acc + int, 0)
+  labelSumInterest.textContent = interest;
+}
 
-
+displaySummary(account1.movements)
 
 
 
@@ -334,3 +343,16 @@ const max = movements.reduce(function (acc, cur) {
 }, movements[0])
 
 console.log(max);
+
+
+
+//PIPELINE
+//chaining methods
+//can only chain a method after another if the first one returns an array
+
+//do not overuse chaining - try to optimize it cause many methods after another
+//can cause performance issues. when chaining methods keep looking for opportuniites to keep up your codes performance.
+
+//2 its a bad practice in JS to chain methods that mutate an underlying original array (e.g splice method)
+const total = movements.filter(mov=>mov>0).map(cur=>cur*1.1).reduce((acc,cur)=>acc+cur,0)
+console.log('total',total);
