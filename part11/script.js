@@ -82,7 +82,7 @@ const displayMovements = function (movements) {
   })
 }
 
-displayMovements(account1.movements)
+// displayMovements(account1.movements)
 
 
 
@@ -117,20 +117,66 @@ const showBalance = function (movements) {
 }
 
 
-showBalance(account2.movements)
+// showBalance(account2.movements)
 
 
-const displaySummary = function (movements) {
-  const incomes = movements.filter(mov => mov > 0).reduce((acc, cur) => acc + cur, 0);
+const displaySummary = function (account) {
+  const incomes = account.movements.filter(mov => mov > 0).reduce((acc, cur) => acc + cur, 0);
   console.log('incomes: ', incomes);
   labelSumIn.textContent = incomes;
-  const out = movements.filter(mov => mov < 0).reduce((acc, cur) => acc + Math.abs(cur), 0)
+  const out = account.movements.filter(mov => mov < 0).reduce((acc, cur) => acc + Math.abs(cur), 0)
   labelSumOut.textContent = out;
-  const interest = movements.filter(mov => mov > 0).map(deposit => deposit * 1.2 / 100).filter((int,i,arr)=>int>=1).reduce((acc, int) => acc + int, 0)
+  const interest = account.movements.filter(mov => mov > 0).map(deposit => deposit * account.interestRate / 100).filter((int,i,arr)=>int>=1).reduce((acc, int) => acc + int, 0)
   labelSumInterest.textContent = interest;
 }
 
-displaySummary(account1.movements)
+// displaySummary(account1.movements)
+
+
+
+
+
+
+//Event handler
+//in html the default behavior when you click the submit button is for the page to reload
+//hitting enter in the input field is same as user clicking the button
+
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  //prevent form from submitting
+  e.preventDefault();
+
+  currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value)
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    //display UI and welcome message
+    labelWelcome.textContent = `Welcome back ${currentAccount.owner.split(' ')[0]}`
+
+    containerApp.style.opacity = 100;
+
+    //clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    //display movements
+    displayMovements(currentAccount.movements)
+    //display balance
+    showBalance(currentAccount.movements)
+    //display summary
+    displaySummary(currentAccount)
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 
