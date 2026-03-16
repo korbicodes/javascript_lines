@@ -355,4 +355,28 @@ console.log(max);
 
 //2 its a bad practice in JS to chain methods that mutate an underlying original array (e.g splice method)
 const total = movements.filter(mov=>mov>0).map(cur=>cur*1.1).reduce((acc,cur)=>acc+cur,0)
-console.log('total',total);
+console.log('total', total);
+
+
+
+
+
+
+//find method - retrieve an element of an array based on a condition
+//does not return new array, only the first element that fulfills the condition
+const find = movements.find(mov => mov < 0);
+
+console.log(find);
+
+console.log(accounts);
+
+//can find an object based on some property of that object
+const account = accounts.find(acc =>  acc.owner === 'Jessica Davis')
+console.log(account);
+
+
+for (const acc of accounts) {
+  if (acc.owner === 'Jessica Davis') {
+    console.log(acc);
+  }
+}
