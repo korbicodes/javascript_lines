@@ -143,6 +143,7 @@ const displaySummary = function (account) {
 
 let currentAccount;
 
+//login implemetation 
 btnLogin.addEventListener('click', function (e) {
   //prevent form from submitting
   e.preventDefault();
