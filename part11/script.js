@@ -178,18 +178,6 @@ btnLogin.addEventListener('click', function (e) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //////////////////////////////////////////
 
 // //lectures
