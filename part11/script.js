@@ -108,8 +108,8 @@ console.log(accounts);
 
 
 
-const showBalance = function (movements) {
-  const balance = movements.reduce(function(acc,cur) {
+const showBalance = function (account) {
+  account.balance = account.movements.reduce(function(acc,cur) {
     // console.log('acc',acc,cur);
     return acc + cur
   }, 0)
@@ -141,6 +141,12 @@ const displaySummary = function (account) {
 //in html the default behavior when you click the submit button is for the page to reload
 //hitting enter in the input field is same as user clicking the button
 
+function updateUI(account) {
+  displayMovements(account.movements);
+  showBalance(account)
+  displaySummary(account);
+}
+
 let currentAccount;
 
 //login implemetation 
@@ -159,17 +165,35 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
-    //display movements
-    displayMovements(currentAccount.movements)
-    //display balance
-    showBalance(currentAccount.movements)
-    //display summary
-    displaySummary(currentAccount)
+    // //display movements
+    // displayMovements(currentAccount.movements)
+    // //display balance
+    // showBalance(currentAccount)
+    // //display summary
+    // displaySummary(currentAccount)
+
+    updateUI(currentAccount)
   }
 })
 
 
+//implemeting transfers
+btnTransfer.addEventListener('click', function (e){
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiveAcc = accounts.find(acc => acc.username === inputTransferTo.value)
+  
+  inputTransferAmount.value = inputTransferTo.value = '';
 
+  if (amount > 0 && receiveAcc && currentAccount.balance >= amount && receiveAcc?.username === currentAccount.username) {
+    
+    //doing the transfer
+    currentAccount.movements.push(-amount)
+    receiveAcc.movements.push(amount)
+
+    updateUI(currentAccount)
+  }
+})
 
 
 
