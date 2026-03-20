@@ -195,10 +195,21 @@ btnTransfer.addEventListener('click', function (e){
   }
 })
 
+////the findIndex method - same as find but returns the index of the found element and not the element itself.
 
-
-
-
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (inputCloseUsername.value === currentAccount.username && Number(inputClosePin.value) === currentAccount.pin) {
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username)
+    //delete account
+    accounts.splice(index, 1)
+    
+    //logout
+    containerApp.style.opacity = 0;
+    
+  }
+  inputLoginUsername.value = inputLoginPin.value = '';
+})
 
 
 
@@ -439,3 +450,4 @@ for (const acc of accounts) {
     console.log(acc);
   }
 }
+
