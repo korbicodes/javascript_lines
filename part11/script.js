@@ -440,14 +440,14 @@ console.log(find);
 
 console.log(accounts);
 
-//can find an object based on some property of that object
-const account = accounts.find(acc =>  acc.owner === 'Jessica Davis')
-console.log(account);
+// //can find an object based on some property of that object
+// const account = accounts.find(acc =>  acc.owner === 'Jessica Davis')
+// console.log(account);
 
 
-for (const acc of accounts) {
-  if (acc.owner === 'Jessica Davis') {
-    console.log(acc);
-  }
-}
+// for (const acc of accounts) {
+//   if (acc.owner === 'Jessica Davis') {
+//     console.log(acc);
+//   }
+// }
 
