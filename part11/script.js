@@ -213,6 +213,16 @@ btnClose.addEventListener('click', function (e) {
 
 
 
+
+
+
+
+
+
+
+
+
+
 //////////////////////////////////////////
 
 // //lectures
