@@ -461,3 +461,15 @@ console.log(accounts);
 //   }
 // }
 
+console.log(movements);
+
+
+//finds last value < 0
+const lastWithdrawal = movements.findLast(mov => mov < 0);
+console.log(lastWithdrawal);
+
+
+//findlastINdext
+const latestLargeMovementInde = movements.findLastIndex(mov => Math.abs(mov) > 1000);
+console.log(latestLargeMovementInde);
+console.log(`your latest large movement was ${movements.length - latestLargeMovementInde - 1}`);
