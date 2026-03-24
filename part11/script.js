@@ -470,6 +470,6 @@ console.log(lastWithdrawal);
 
 
 //findlastINdext
-const latestLargeMovementInde = movements.findLastIndex(mov => Math.abs(mov) > 1000);
+const latestLargeMovementInde = movements.findLastIndex(mov => Math.abs(mov) > 2000);
 console.log(latestLargeMovementInde);
-console.log(`your latest large movement was ${movements.length - latestLargeMovementInde - 1}`);
+console.log(`your latest large movement was ${movements.length - latestLargeMovementInde}`);
