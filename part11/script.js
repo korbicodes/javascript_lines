@@ -113,7 +113,7 @@ const showBalance = function (account) {
     // console.log('acc',acc,cur);
     return acc + cur
   }, 0)
-  labelBalance.textContent = balance;
+  labelBalance.textContent = account.balance;
 }
 
 
@@ -159,7 +159,7 @@ btnLogin.addEventListener('click', function (e) {
     //display UI and welcome message
     labelWelcome.textContent = `Welcome back ${currentAccount.owner.split(' ')[0]}`
 
-    containerApp.style.opacity = 100;
+    containerApp.style.opacity = 1;
 
     //clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -175,6 +175,7 @@ btnLogin.addEventListener('click', function (e) {
     updateUI(currentAccount)
   }
 })
+
 
 
 //implemeting transfers
@@ -194,6 +195,24 @@ btnTransfer.addEventListener('click', function (e){
     updateUI(currentAccount)
   }
 })
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value)
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    //add movement
+    currentAccount.movements.push(amount)
+    //update UI
+    updateUI(currentAccount)
+  }
+  inputLoanAmount = '';
+  
+})
+
+
+
+
 
 ////the findIndex method - same as find but returns the index of the found element and not the element itself.
 
@@ -473,3 +492,20 @@ console.log(lastWithdrawal);
 const latestLargeMovementInde = movements.findLastIndex(mov => Math.abs(mov) > 2000);
 console.log(latestLargeMovementInde);
 console.log(`your latest large movement was ${movements.length - latestLargeMovementInde}`);
+
+
+//some and every
+
+//check for the equality
+ console.log(movements.includes(-130));
+
+
+//can specify condition
+//check if there are positive movements
+console.log(movements.some(mov=>mov === -130));
+const anyDeposits = movements.some(mov => mov > 0);  //true
+console.log(anyDeposits);
+
+
+//every - returns true only all elements fulfill the condition
+console.log(movements.every(mov=>mov>0));  //false 
