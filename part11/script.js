@@ -503,8 +503,8 @@ console.log(lastWithdrawal);
 //can specify condition
 //check if there are positive movements
 console.log(movements.some(mov=>mov === -130));
-const anyDeposits = movements.some(mov => mov > 0);  //true
-console.log(anyDeposits);
+console.log(movements.some(mov => mov > 0));  //true
+
 
 
 //every - returns true only all elements fulfill the condition
